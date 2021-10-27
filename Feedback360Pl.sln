@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Feedback360Pl.DAL", "Feedba
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Feedback360Pl.xUnitTest.DAL", "Feedback360Pl.xUnitTest.DAL\Feedback360Pl.xUnitTest.DAL.csproj", "{CB0C2B47-11F0-4E16-8DEE-EB74ACD3B4A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{168D311D-5F8D-4A23-A51C-5A9FB59057F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{73631BAE-B459-4514-B995-02B065220AE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{CB0C2B47-11F0-4E16-8DEE-EB74ACD3B4A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB0C2B47-11F0-4E16-8DEE-EB74ACD3B4A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB0C2B47-11F0-4E16-8DEE-EB74ACD3B4A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{168D311D-5F8D-4A23-A51C-5A9FB59057F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{168D311D-5F8D-4A23-A51C-5A9FB59057F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{168D311D-5F8D-4A23-A51C-5A9FB59057F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{168D311D-5F8D-4A23-A51C-5A9FB59057F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73631BAE-B459-4514-B995-02B065220AE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73631BAE-B459-4514-B995-02B065220AE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73631BAE-B459-4514-B995-02B065220AE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73631BAE-B459-4514-B995-02B065220AE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

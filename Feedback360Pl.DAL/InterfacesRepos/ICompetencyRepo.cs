@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FeedbackReport.DAL.InterfacesRepos
 {
-    public interface IModelRepo : IGenericRepo<Competency>
+    public interface ICompetencyRepo : IGenericRepo<Competency>
     {
     }
 

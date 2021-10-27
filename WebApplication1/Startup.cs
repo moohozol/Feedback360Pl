@@ -1,6 +1,3 @@
-using FeedbackPGNiG.Data;
-using FeedbackReport.DAL.Data;
-using FeedbackReport.DAL.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -14,8 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication1.Data;
 
-namespace FeedbackPGNiG
+namespace WebApplication1
 {
     public class Startup
     {
@@ -33,7 +31,7 @@ namespace FeedbackPGNiG
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDbContext<FeedbackContext>(options =>
+            services.AddDbContext<FeedbacktestContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
@@ -43,12 +41,6 @@ namespace FeedbackPGNiG
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-
-            #region DAL repositories
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-            #endregion
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

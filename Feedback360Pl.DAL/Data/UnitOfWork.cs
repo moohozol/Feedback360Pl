@@ -11,13 +11,13 @@ namespace FeedbackReport.DAL.Data
         public readonly DalContext context;
         public readonly ILogger logger;
 
-        //public IScaleRepo Scales { get; private set; }
+        public ICompetencyRepo Competencies { get; private set; }
 
         public UnitOfWork(DalContext context, ILoggerFactory loggerFactory)
         {
             this.context = context;
             this.logger = loggerFactory.CreateLogger("logs");
-            // Scales = new ScaleRepo(context, logger);
+            Competencies = new CompetencyRepo(context, logger);
         }
 
 

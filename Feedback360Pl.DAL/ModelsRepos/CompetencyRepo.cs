@@ -10,21 +10,21 @@ using System;
 
 namespace FeedbackReport.Models.ModelsRepos
 {
-    public class CompetencyRepo : GenericRepo<Competency>, IModelRepo
+    public class CompetencyRepo : GenericRepo<Competency>, ICompetencyRepo
     {
         public CompetencyRepo(DalContext context, ILogger logger) : base(context, logger) { }
 
-        public override async Task<IEnumerable<Competency>> GetAllAsync()
-        {
-            try
-            {
-                return (await dbSet.ToListAsync()).OrderBy(a => a.Value);
-            }
-            catch (Exception ex)
-            {
-                logger.LogError(ex, "{Repo} GetAll function error", typeof(CompetencyRepo));
-                return new List<Competency>();
-            }
-        }
+        //public override async Task<IEnumerable<Competency>> GetAllAsync()
+        //{
+        //    try
+        //    {
+        //        return (await dbSet.ToListAsync()).OrderBy(a => a.Value);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        logger.LogError(ex, "{Repo} GetAll function error", typeof(CompetencyRepo));
+        //        return new List<Competency>();
+        //    }
+        //}
     }
 }
