@@ -10,11 +10,11 @@ using System;
 
 namespace FeedbackReport.Models.ModelsRepos
 {
-    public class ExampleRepo : GenericRepo<ExampleModel>, IModelRepo
+    public class CompetencyRepo : GenericRepo<Competency>, IModelRepo
     {
-        public ExampleRepo(DalContext context, ILogger logger) : base(context, logger) { }
+        public CompetencyRepo(DalContext context, ILogger logger) : base(context, logger) { }
 
-        public override async Task<IEnumerable<ExampleModel>> GetAllAsync()
+        public override async Task<IEnumerable<Competency>> GetAllAsync()
         {
             try
             {
@@ -22,8 +22,8 @@ namespace FeedbackReport.Models.ModelsRepos
             }
             catch (Exception ex)
             {
-                logger.LogError(ex, "{Repo} All function error", typeof(ExampleRepo));
-                return new List<ExampleModel>();
+                logger.LogError(ex, "{Repo} GetAll function error", typeof(CompetencyRepo));
+                return new List<Competency>();
             }
         }
     }

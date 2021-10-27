@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FeedbackReport.DAL.Models
 {
-    public class ExampleModel : BaseEntity
+    public class Competency : BaseEntity
     {
         [Range(minimum: -1, maximum: 10)]
         [Required]
