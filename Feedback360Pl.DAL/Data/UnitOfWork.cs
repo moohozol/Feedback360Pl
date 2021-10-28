@@ -1,10 +1,10 @@
-﻿using FeedbackReport.DAL.Interfaces;
-using FeedbackReport.DAL.InterfacesRepos;
-using FeedbackReport.Models.ModelsRepos;
+﻿using Feedback360Pl.DAL.Interfaces;
+using Feedback360Pl.DAL.InterfacesRepos;
+using Feedback360Pl.Models.ModelsRepos;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
 
-namespace FeedbackReport.DAL.Data
+namespace Feedback360Pl.DAL.Data
 {
     public class UnitOfWork : IUnitOfWork
     {

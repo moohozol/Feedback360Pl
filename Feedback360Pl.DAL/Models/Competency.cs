@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace FeedbackReport.DAL.Models
+namespace Feedback360Pl.DAL.Models
 {
     public class Competency : BaseEntity
     {

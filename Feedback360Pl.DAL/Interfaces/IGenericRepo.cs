@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace FeedbackReport.DAL.Interfaces
+namespace Feedback360Pl.DAL.Interfaces
 {
     public interface IGenericRepo<T> where T : class
     {

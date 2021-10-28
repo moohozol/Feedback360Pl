@@ -1,14 +1,9 @@
-﻿using FeedbackReport.DAL.Data;
-using FeedbackReport.DAL.InterfacesRepos;
-using FeedbackReport.DAL.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Linq;
+﻿using Feedback360Pl.DAL.Data;
+using Feedback360Pl.DAL.InterfacesRepos;
+using Feedback360Pl.DAL.Models;
 using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
-using System;
 
-namespace FeedbackReport.Models.ModelsRepos
+namespace Feedback360Pl.Models.ModelsRepos
 {
     public class CompetencyRepo : GenericRepo<Competency>, ICompetencyRepo
     {

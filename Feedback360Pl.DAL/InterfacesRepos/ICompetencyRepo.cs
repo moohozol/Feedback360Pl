@@ -1,9 +1,9 @@
-﻿using FeedbackReport.DAL.Interfaces;
-using FeedbackReport.DAL.Models;
+﻿using Feedback360Pl.DAL.Interfaces;
+using Feedback360Pl.DAL.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FeedbackReport.DAL.InterfacesRepos
+namespace Feedback360Pl.DAL.InterfacesRepos
 {
     public interface ICompetencyRepo : IGenericRepo<Competency>
     {

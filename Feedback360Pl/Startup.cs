@@ -1,6 +1,5 @@
-using FeedbackPGNiG.Data;
-using FeedbackReport.DAL.Data;
-using FeedbackReport.DAL.Interfaces;
+using Feedback360Pl.DAL.Data;
+using Feedback360Pl.DAL.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,11 +28,11 @@ namespace FeedbackPGNiG
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<Data.ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDbContext<FeedbackContext>(options =>
+            services.AddDbContext<DalContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
@@ -41,7 +40,7 @@ namespace FeedbackPGNiG
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<Data.ApplicationDbContext>();
             services.AddControllersWithViews();
 
             #region DAL repositories

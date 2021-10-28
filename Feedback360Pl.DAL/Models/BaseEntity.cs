@@ -1,7 +1,7 @@
-﻿using FeedbackReport.DAL.Interfaces;
+﻿using Feedback360Pl.DAL.Interfaces;
 using System;
 
-namespace FeedbackReport.DAL.Models
+namespace Feedback360Pl.DAL.Models
 {
     public class BaseEntity : IBaseEntity
     {

@@ -1,6 +1,6 @@
-﻿using FeedbackReport.DAL.Data;
-using FeedbackReport.DAL.InterfacesRepos;
-using FeedbackReport.Models.ModelsRepos;
+﻿using Feedback360Pl.DAL.Data;
+using Feedback360Pl.DAL.InterfacesRepos;
+using Feedback360Pl.Models.ModelsRepos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FeedbackReport.xUnitTest.DAL
+namespace Feedback360Pl.xUnitTest.DAL
 {
     // https://ahsanshares.wordpress.com/2019/11/11/xunit-testing-in-ef-core-using-inmemory-database/
     public class TestHelper

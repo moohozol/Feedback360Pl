@@ -9,6 +9,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FeedbackPGNiG.Models
 {
+    /* */
+    //
+
     public partial class Behavior
     {
         [Key]

@@ -1,7 +1,7 @@
-﻿using FeedbackReport.DAL.Models;
+﻿using Feedback360Pl.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FeedbackReport.DAL.Data
+namespace Feedback360Pl.DAL.Data
 {
     public class DalContext : DbContext
     {

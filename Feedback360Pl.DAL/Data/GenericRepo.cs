@@ -1,4 +1,4 @@
-﻿using FeedbackReport.DAL.Interfaces;
+﻿using Feedback360Pl.DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,7 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FeedbackReport.DAL.Data
+namespace Feedback360Pl.DAL.Data
 {
     public class GenericRepo<T> : IGenericRepo<T> where T : class
     {
