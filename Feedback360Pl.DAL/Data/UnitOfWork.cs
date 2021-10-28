@@ -11,7 +11,7 @@ namespace Feedback360Pl.DAL.Data
         public readonly DalContext context;
         public readonly ILogger logger;
 
-        public ICompetencyRepo Competencies { get; private set; }
+        public ICompetencyRepo Competencies { get; set; }
 
         public UnitOfWork(DalContext context, ILoggerFactory loggerFactory)
         {

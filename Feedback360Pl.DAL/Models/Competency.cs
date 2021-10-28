@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Feedback360Pl.DAL.Models
 {
+    [Table("Competency")]
     public class Competency : BaseEntity
     {
         public Competency()
