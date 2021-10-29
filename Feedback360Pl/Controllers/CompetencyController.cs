@@ -4,9 +4,11 @@ using Feedback360Pl.DAL.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Syncfusion.EJ2.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Feedback360pl.Controllers
@@ -23,88 +25,78 @@ namespace Feedback360pl.Controllers
         }
 
         // GET: CompetencyController
-        [HttpGet("/kompetencje/index")]
-        public async Task<ActionResult> Index()
+        //[HttpGet("/kompetencje/index")]
+        public ActionResult Index()
         {
+            return View();
+        }
+
+        public async Task<ActionResult> Insert([FromBody] ICRUDModel<CompetencyVM> value)
+        {
+            Competency competency = new Competency();
+            competency.Name = value.value.Name;
+            competency.Keywords = value.value.Keywords;
+            await unitOfWork.Competencies.AddAsync(competency);
+            return Json(value.value);
+        }
+
+        public async Task<ActionResult> Update([FromBody] ICRUDModel<CompetencyVM> value)
+        {
+            Competency competency = new Competency();
+            competency = await unitOfWork.Competencies.GetByIdAsync(value.value.Id);
+            competency.Name = value.value.Name;
+            competency.Keywords = value.value.Keywords;
+            await unitOfWork.Competencies.UpdateAsync(competency);
+
+            return Json(value.value);
+        }
+
+        public async Task<ActionResult> Delete([FromBody] ICRUDModel<CompetencyVM> value)
+        {
+            Competency competency = new Competency();
+            var id = (JsonSerializer.Deserialize<CompetencyVM>(value.key.ToString())).Id;
+            competency = await unitOfWork.Competencies.GetByIdAsync(id);
+
+            await unitOfWork.Competencies.RemoveAsync(competency);
+            return Json(value);
+        }
+
+        public async Task<ActionResult> UrlDataSource([FromBody] DataManagerRequest dm)
+        {
+            IEnumerable<CompetencyVM> DataSource = new List<CompetencyVM>();
+
             IEnumerable<Competency> competencies = new List<Competency>();
             competencies = await unitOfWork.Competencies.GetAllAsync();
-            ViewBag.DataSource = competencies.Select(a => new CompetencyVM()
+            DataSource = competencies.Select(a => new CompetencyVM()
             {
                 Id = a.Id,
                 Name = a.Name,
                 Keywords = a.Keywords
             });
 
-            return View();
-        }
-
-        // GET: CompetencyController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: CompetencyController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: CompetencyController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
+            DataOperations operation = new DataOperations();
+            if (dm.Search != null && dm.Search.Count > 0)
             {
-                return RedirectToAction(nameof(Index));
+                DataSource = operation.PerformSearching(DataSource, dm.Search);  //Search
             }
-            catch
+            if (dm.Sorted != null && dm.Sorted.Count > 0) //Sorting
             {
-                return View();
+                DataSource = operation.PerformSorting(DataSource, dm.Sorted);
             }
-        }
-
-        // GET: CompetencyController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: CompetencyController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
+            if (dm.Where != null && dm.Where.Count > 0) //Filtering
             {
-                return RedirectToAction(nameof(Index));
+                DataSource = operation.PerformFiltering(DataSource, dm.Where, dm.Where[0].Operator);
             }
-            catch
+            int count = DataSource.Cast<CompetencyVM>().Count();
+            if (dm.Skip != 0)
             {
-                return View();
+                DataSource = operation.PerformSkip(DataSource, dm.Skip);   //Paging
             }
-        }
-
-        // GET: CompetencyController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: CompetencyController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
+            if (dm.Take != 0)
             {
-                return RedirectToAction(nameof(Index));
+                DataSource = operation.PerformTake(DataSource, dm.Take);
             }
-            catch
-            {
-                return View();
-            }
+            return dm.RequiresCounts ? Json(new { result = DataSource, count = count }) : Json(DataSource);
         }
     }
 }

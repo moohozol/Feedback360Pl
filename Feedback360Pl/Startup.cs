@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json.Serialization;
 
 namespace FeedbackPGNiG
 {
@@ -47,6 +48,11 @@ namespace FeedbackPGNiG
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             #endregion
 
+            services.AddMvc().AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
+            });
+
 
         }
 
@@ -76,7 +82,7 @@ namespace FeedbackPGNiG
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Competency}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

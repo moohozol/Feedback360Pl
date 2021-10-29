@@ -6,7 +6,19 @@
 }
 
 <div>
-    <ejs-grid id="Grid" dataSource="@ViewBag.DataSource">
+    <ejs-grid id="Grid"
+              allowPaging="true"
+              allowSorting="true"
+              allowFiltering="true"
+              toolbar="@(new List<string>() { "Add", "Edit", "Delete", "Cancel", "Update" })">
+        <e-grid-editSettings mode="Dialog" allowAdding="true" allowDeleting="true" allowEditing="true" showDeleteConfirmDialog="true"></e-grid-editSettings>
+        <e-grid-pagesettings pageSize="5"></e-grid-pagesettings>
+        <e-data-manager url="/Competency/UrlDataSource" adaptor="UrlAdaptor" insertUrl="/Competency/Insert" updateUrl="/Competency/Update" removeUrl="/Competency/Delete"></e-data-manager>
+        <e-grid-columns>
+            <e-grid-column field="Id" headerText="Id" visible="false" textAlign="Right" width="120"></e-grid-column>
+            <e-grid-column field="Name" headerText="Nazwa kompetencji"></e-grid-column>
+            <e-grid-column field="Keywords" headerText="Słowa kluczowe"></e-grid-column>
+        </e-grid-columns>
 
     </ejs-grid>
 </div>
